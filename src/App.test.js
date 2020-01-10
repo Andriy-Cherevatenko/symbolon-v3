@@ -7,7 +7,7 @@ import Page from './components/Page/Page';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe('App component testing', () => {
+describe('App component tests:', () => {
     const wrapper = shallow(<App />);
     test('App renders without errors and output isn`t undefined/null', () => {
         expect(wrapper).toBeTruthy();

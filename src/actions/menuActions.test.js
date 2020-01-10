@@ -5,9 +5,10 @@ describe('selectZodiacSign', () => {
     test('returns an action with type `SELECT_ZODIAC_SIGN`', () => {
         const zodiacName = 'smth';
         const action = ACTION_CREATORS.selectZodiacSign(zodiacName);
-        expect(action).toEqual({
+        const expectedAction = {
             type: ACTIONS.SELECT_ZODIAC_SIGN,
-            zodiacName
-        });
+            zodiacName,
+        };
+        expect(action).toEqual(expectedAction);
     });
 });
