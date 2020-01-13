@@ -9,3 +9,4 @@ const BlankPage = React.memo(() => {
 });
 
 export default BlankPage;
+BlankPage.displayName = 'BlankPage';

@@ -9,3 +9,4 @@ const Pisces = React.memo(() => {
 });
 
 export default Pisces;
+Pisces.displayName = 'Pisces';

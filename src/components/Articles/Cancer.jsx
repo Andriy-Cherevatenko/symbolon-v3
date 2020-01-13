@@ -9,3 +9,4 @@ const Cancer = React.memo(() => {
 });
 
 export default Cancer;
+Cancer.displayName = 'Cancer';

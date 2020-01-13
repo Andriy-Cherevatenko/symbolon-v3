@@ -9,3 +9,6 @@ const Capricorn = React.memo(() => {
 });
 
 export default Capricorn;
+Capricorn.displayName = 'Capricorn';
+
+

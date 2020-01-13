@@ -9,3 +9,4 @@ const Leo = React.memo(() => {
 });
 
 export default Leo;
+Leo.displayName = 'Leo';

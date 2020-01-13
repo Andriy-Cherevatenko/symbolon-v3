@@ -9,3 +9,4 @@ const Gemini = React.memo(() => {
 });
 
 export default Gemini;
+Gemini.displayName = 'Gemini';

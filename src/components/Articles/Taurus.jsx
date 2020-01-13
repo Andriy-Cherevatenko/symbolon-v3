@@ -9,3 +9,4 @@ const Taurus = React.memo(() => {
 });
 
 export default Taurus;
+Taurus.displayName = 'Taurus';

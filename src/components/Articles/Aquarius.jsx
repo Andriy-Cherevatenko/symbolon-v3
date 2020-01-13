@@ -9,3 +9,4 @@ const Aquarius = React.memo(() => {
 });
 
 export default Aquarius;
+Aquarius.displayName = 'Aquarius';

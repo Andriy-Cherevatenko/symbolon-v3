@@ -9,3 +9,4 @@ const Sagittarius = React.memo(() => {
 });
 
 export default Sagittarius;
+Sagittarius.displayName = 'Sagittarius';

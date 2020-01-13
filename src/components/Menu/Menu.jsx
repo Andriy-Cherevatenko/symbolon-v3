@@ -23,3 +23,4 @@ const Menu = memo(() => {
 });
 
 export default Menu;
+Menu.displayName = 'Menu';

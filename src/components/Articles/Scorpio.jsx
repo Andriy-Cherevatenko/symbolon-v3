@@ -9,3 +9,4 @@ const Scorpio = React.memo(() => {
 });
 
 export default Scorpio;
+Scorpio.displayName = 'Scorpio';

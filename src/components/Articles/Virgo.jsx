@@ -9,3 +9,4 @@ const Virgo = React.memo(() => {
 });
 
 export default Virgo;
+Virgo.displayName = 'Virgo';

@@ -9,3 +9,5 @@ const Libra = React.memo(() => {
 });
 
 export default Libra;
+Libra.displayName = 'Libra';
+
