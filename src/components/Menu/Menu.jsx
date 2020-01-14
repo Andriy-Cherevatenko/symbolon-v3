@@ -7,18 +7,16 @@ import { useSelector } from 'react-redux';
 const Menu = memo(() => {
     const selectedCards = useSelector((state) => state.get('selectedCards'));
     return (
-        <React.Fragment>
-            <div className="menu-wrapper">
-                {Object.keys(ZODIAC).map((item) => (
-                    <MenuItem
-                        selected={selectedCards.indexOf(item) > -1}
-                        key={item}
-                        zodiacName={item}
-                        zodiacSign={ZODIAC[item].sign}
-                    />
-                ))}
-            </div>
-        </React.Fragment>
+        <div className="menu-wrapper">
+            {Object.keys(ZODIAC).map((item) => (
+                <MenuItem
+                    selected={selectedCards.indexOf(item) > -1}
+                    key={item}
+                    zodiacName={item}
+                    zodiacSign={ZODIAC[item].sign}
+                />
+            ))}
+        </div>
     );
 });
 
