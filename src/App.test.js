@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import App from './App';
 import Menu from './components/Menu/Menu';
@@ -7,8 +7,14 @@ import Page from './components/Page/Page';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+jest.mock('react-redux', () => ({
+    useDispatch: () => {},
+    useSelector: () =>  ['Aries', 'Cancer']
+}));
+
 describe('App component tests:', () => {
-    const app = shallow(<App />);
+    const app = mount(<App />);
+    //console.log(app.debug());
     const page = app.find(Page);
     const menu = app.find(Menu);
 
