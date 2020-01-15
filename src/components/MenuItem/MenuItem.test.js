@@ -25,7 +25,7 @@ describe('Menu Item Unit tests:', () => {
 
     it('Menu renders without errors and output isn`t undefined/null', () => {
         //console.log(menuItem.debug());
-        
+
         expect(menuItem).toBeTruthy();
     });
 });

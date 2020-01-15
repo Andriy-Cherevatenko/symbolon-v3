@@ -118,4 +118,41 @@ describe('menuReducer:', () => {
         expect(nextState.get('selectedCards')).toEqual(['Cancer']);
         expect(nextState.get('article').type.displayName).toEqual('Cancer');
     });
+
+    //____________after work of test coverage tool_____________________
+    it(`should handle payload "Taurus" correctly (Aries in array)`, () => {
+        const zodiacName = 'Taurus';
+        const initialState = Immutable.Map({
+            article: <Articles.Taurus />,
+            selectedCards: ['Aries'],
+        });
+        const nextState = Reducer(initialState, {
+            type: ACTIONS.SELECT_ZODIAC_SIGN,
+            zodiacName,
+        });
+
+        // console.log('array', nextState.get('selectedCards'));
+        // console.log('displayName', nextState.get('article').type.displayName);
+
+        expect(nextState.get('selectedCards')).toEqual(['Aries', zodiacName]);
+        expect(nextState.get('article').type.displayName).toEqual('AriesTaurus');
+    });
+
+    it(`should handle correctly if switch check causes break`, () => {
+        const zodiacName = 'Cancer';
+        const initialState = Immutable.Map({
+            article: <Articles.AriesTaurus />,
+            selectedCards: ['Aries', 'Taurus', 'Taurus'],
+        });
+        const nextState = Reducer(initialState, {
+            type: ACTIONS.SELECT_ZODIAC_SIGN,
+            zodiacName,
+        });
+
+        expect(nextState.get('selectedCards')).toEqual([
+            'Aries',
+            'Taurus',
+            'Taurus',
+        ]);
+    });
 });

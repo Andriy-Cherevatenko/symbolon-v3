@@ -10,13 +10,16 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: (params) => {
-        //console.log(params.toString());
-        switch (params.toString()) {
-            case "state => state.get('article')":
-                return <div>Aries-Cancer Component </div>;
-            case "state => state.get('selectedCards')":
-                return ['Aries', 'Cancer'];
-        }
+        const paramsString = params.toString();
+        //console.log(paramsString);
+
+        if (paramsString.includes('article')) {
+            //console.log('article');
+            return <div>Aries-Cancer Component </div>;
+        } else if (paramsString.includes('selectedCards')) {
+            //console.log('selectedCards');
+            return ['Aries', 'Cancer'];
+        } else return {};
     },
 }));
 

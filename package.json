@@ -20,7 +20,7 @@
     "scripts": {
         "start": "cross-env npm run eslint && craco start",
         "build": "cross-env craco build",
-        "test": "cross-env craco test --verbose",
+        "test": "cross-env craco test --verbose --coverage --watchAll",
         "eject": "cross-env react-scripts eject",
         "eslint": "cross-env eslint src/",
         "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
@@ -79,6 +79,22 @@
         "*.+(json|css|md)": [
             "prettier --write",
             "git add"
+        ]
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/coverage/**",
+            "!**/serviceWorker.js",
+            "!**/index.js",
+            "!**/components/Articles/**"
+        ],
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text",
+            "clover"
         ]
     }
 }

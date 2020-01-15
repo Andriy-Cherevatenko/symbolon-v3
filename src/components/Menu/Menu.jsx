@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Menu = memo(() => {
     const selectedCards = useSelector((state) => state.get('selectedCards'));
-    return (
+        return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (
                 <MenuItem
