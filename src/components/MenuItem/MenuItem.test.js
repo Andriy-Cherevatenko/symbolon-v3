@@ -5,8 +5,9 @@ import MenuItem from './MenuItem';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
-    useDispatch: () => jest.fn(),
+    useDispatch: () => mockDispatch,
 }));
 
 describe('Menu Item Unit tests:', () => {
@@ -28,7 +29,7 @@ describe('Menu Item Unit tests:', () => {
 
     it('Menu Item renders without errors and output isn`t undefined/null', () => {
         menuItem.simulate('click');
-        // expect(jest.mock.useDispatch.calls.length).toEqual(1);
-        // expect(page.containsMatchingElement(AriesComponent)).toEqual(true);
+
+        expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
 });
