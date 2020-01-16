@@ -4,9 +4,11 @@ import MenuItem from '../MenuItem/MenuItem';
 import ZODIAC from '../../constants/constants';
 import { useSelector } from 'react-redux';
 
+export const getSelectedCards = (state) => state.get('selectedCards');
+
 const Menu = memo(() => {
-    const selectedCards = useSelector((state) => state.get('selectedCards'));
-        return (
+    const selectedCards = useSelector(getSelectedCards);
+    return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (
                 <MenuItem
