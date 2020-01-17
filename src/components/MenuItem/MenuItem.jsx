@@ -19,7 +19,7 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
     return (
         <div onClick={onClick} className={menuItemClasses}>
             <img src={zodiacSign} alt={zodiacSign} />
-        </div>
+       </div>
     );
 });
 

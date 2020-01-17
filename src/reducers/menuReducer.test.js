@@ -3,6 +3,10 @@ import Reducer from '../reducers';
 import Immutable from 'immutable';
 import Articles from '../components/Articles';
 import ACTIONS from '../actions';
+import Enzyme, { mount } from 'enzyme';
+import EnzymeAdapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe('menuReducer:', () => {
     it('should return the initial state', () => {
@@ -27,7 +31,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual([zodiacName]);
-        expect(nextState.get('article').type.displayName).toEqual(zodiacName);
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('Aries Component');
     });
 
     it(`should handle payload "Aries" correctly (Aries already in array)`, () => {
@@ -42,7 +47,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual([]);
-        expect(nextState.get('article').type.displayName).toEqual('BlankPage');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('BlankPage Component');
     });
 
     it(`should handle payload "Aries" correctly (Taurus in array)`, () => {
@@ -57,7 +63,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual([zodiacName, 'Taurus']);
-        expect(nextState.get('article').type.displayName).toEqual('AriesTaurus');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('AriesTaurus Component');
     });
 
     it(`should handle payload "Aries" correctly (Aries and Taurus in array)`, () => {
@@ -72,7 +79,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual(['Taurus']);
-        expect(nextState.get('article').type.displayName).toEqual('Taurus');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('Taurus Component');
     });
 
     it(`should handle payload "Taurus" correctly (Aries and Taurus in array)`, () => {
@@ -87,7 +95,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual(['Aries']);
-        expect(nextState.get('article').type.displayName).toEqual('Aries');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('Aries Component');
     });
 
     it(`should handle payload "Cancer" correctly (Aries and Taurus in array)`, () => {
@@ -102,7 +111,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual(['Cancer']);
-        expect(nextState.get('article').type.displayName).toEqual('Cancer');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('Cancer Component');
     });
 
     it(`should handle payload "Taurus" correctly (Aries in array)`, () => {
@@ -117,7 +127,8 @@ describe('menuReducer:', () => {
         });
 
         expect(nextState.get('selectedCards')).toEqual(['Aries', zodiacName]);
-        expect(nextState.get('article').type.displayName).toEqual('AriesTaurus');
+        const page = mount(nextState.get('article'));
+        expect(page.text()).toBe('AriesTaurus Component');
     });
 
     it(`should handle correctly if switch check causes break`, () => {

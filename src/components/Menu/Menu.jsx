@@ -18,7 +18,7 @@ const Menu = memo(() => {
                     zodiacSign={ZODIAC[item].sign}
                 />
             ))}
-        </div>
+       </div>
     );
 });
 

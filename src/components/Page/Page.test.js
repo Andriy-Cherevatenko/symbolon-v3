@@ -7,7 +7,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 jest.mock('react-redux', () => ({
     useDispatch: () => {},
-    useSelector: () => <div>BlankPage Component </div>,
+    useSelector: () => <div>BlankPage Component</div>,
 }));
 
 describe('Page Unit test:', () => {

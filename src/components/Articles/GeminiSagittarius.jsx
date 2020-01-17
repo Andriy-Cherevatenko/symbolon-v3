@@ -3,7 +3,7 @@ import React from 'react';
 const GeminiSagittarius = React.memo(() => {
     return (
         <React.Fragment>
-            <div> GeminiSagittarius Component </div>
+            <div>GeminiSagittarius Component</div>
         </React.Fragment>
     );
 });

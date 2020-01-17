@@ -3,7 +3,7 @@ import React from 'react';
 const AriesCapricorn = React.memo(() => {
     return (
         <React.Fragment>
-            <div> AriesCapricorn Component</div>
+            <div>AriesCapricorn Component</div>
         </React.Fragment>
     );
 });

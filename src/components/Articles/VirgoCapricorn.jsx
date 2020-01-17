@@ -3,7 +3,7 @@ import React from 'react';
 const VirgoCapricorn = React.memo(() => {
     return (
         <React.Fragment>
-            <div> VirgoCapricorn Component </div>
+            <div>VirgoCapricorn Component</div>
         </React.Fragment>
     );
 });

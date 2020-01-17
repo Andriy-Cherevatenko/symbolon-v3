@@ -3,7 +3,7 @@ import React from 'react';
 const ScorpioAquarius = React.memo(() => {
     return (
         <React.Fragment>
-            <div> ScorpioAquarius Component </div>
+            <div>ScorpioAquarius Component</div>
         </React.Fragment>
     );
 });

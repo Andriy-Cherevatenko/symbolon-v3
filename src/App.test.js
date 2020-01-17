@@ -13,7 +13,7 @@ jest.mock('react-redux', () => ({
         const paramsString = params.toString();
 
         if (paramsString.includes('article')) {
-            return <div>Aries-Cancer Component </div>;
+            return <div>Aries-Cancer Component</div>;
         } else if (paramsString.includes('selectedCards')) {
             return ['Aries', 'Cancer'];
         } else return {};
