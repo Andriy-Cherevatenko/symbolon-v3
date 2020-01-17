@@ -10,4 +10,4 @@ const Page = memo(() => {
 });
 
 export default Page;
-Page.displayName = 'Page';
+
