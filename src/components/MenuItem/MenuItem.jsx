@@ -17,7 +17,7 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
     const menuItemClasses = classNames('menuitem-centered', { selected });
 
     return (
-        <div onClick={onClick} className={menuItemClasses}>
+        <div data-testid="menuitem" onClick={onClick} className={menuItemClasses}>
             <img src={zodiacSign} alt={zodiacSign} />
        </div>
     );
