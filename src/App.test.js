@@ -11,13 +11,10 @@ jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: (params) => {
         const paramsString = params.toString();
-        //console.log(paramsString);
 
         if (paramsString.includes('article')) {
-            //console.log('article');
             return <div>Aries-Cancer Component </div>;
         } else if (paramsString.includes('selectedCards')) {
-            //console.log('selectedCards');
             return ['Aries', 'Cancer'];
         } else return {};
     },
@@ -25,19 +22,18 @@ jest.mock('react-redux', () => ({
 
 describe('App component tests:', () => {
     const app = mount(<App />);
-    //console.log(app.debug());
     const page = app.find(Page);
     const menu = app.find(Menu);
 
-    it('App renders without errors and output isn`t undefined/null', () => {
+    it('tests App Component rendering', () => {
         expect(app).toBeTruthy();
     });
 
-    it('App contains one and only one Page component', () => {
+    it('tests if App Component contains only one Page component', () => {
         expect(page.length).toBe(1);
     });
 
-    it('App contains one and only one Menu component', () => {
+    it('tests if App Component contains only one Menu component', () => {
         expect(menu.length).toBe(1);
     });
 });

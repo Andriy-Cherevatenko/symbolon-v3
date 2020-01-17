@@ -23,11 +23,11 @@ describe('Menu Item Unit tests:', () => {
         />
     ).find(MenuItem);
 
-    it('Menu Item renders without errors and output isn`t undefined/null', () => {
+    it('tests Menu Item rendering', () => {
         expect(menuItem).toBeTruthy();
     });
 
-    it('Menu Item renders without errors and output isn`t undefined/null', () => {
+    it('tests onClick event for MenuItem Component', () => {
         menuItem.simulate('click');
 
         expect(mockDispatch).toHaveBeenCalledTimes(1);

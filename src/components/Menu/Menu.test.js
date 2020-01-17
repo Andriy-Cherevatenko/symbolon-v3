@@ -13,11 +13,11 @@ jest.mock('react-redux', () => ({
 describe('Menu Unit tests:', () => {
     const menu = mount(<Menu />).find(Menu);
 
-    it('Menu renders without errors and output isn`t undefined/null', () => {
+    it('renders Menu Component without errors', () => {
         expect(menu).toBeTruthy();
     });
 
-    it('test function of getting state "selectedCards"', () => {
+    it('tests function of getting state "selectedCards"', () => {
         const state = {
             get: (smth) => smth,
         };

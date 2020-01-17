@@ -43,8 +43,6 @@ describe('menuReducer:', () => {
 
         expect(nextState.get('selectedCards')).toEqual([]);
         expect(nextState.get('article').type.displayName).toEqual('BlankPage');
-        //console.log('array', nextState.get('selectedCards'));
-        //console.log('displayName', nextState.get('article').type.displayName);
     });
 
     it(`should handle payload "Aries" correctly (Taurus in array)`, () => {
@@ -57,9 +55,6 @@ describe('menuReducer:', () => {
             type: ACTIONS.SELECT_ZODIAC_SIGN,
             zodiacName,
         });
-
-        //console.log('array', nextState.get('selectedCards'));
-        //console.log('displayName', nextState.get('article').type.displayName);
 
         expect(nextState.get('selectedCards')).toEqual([zodiacName, 'Taurus']);
         expect(nextState.get('article').type.displayName).toEqual('AriesTaurus');
@@ -76,9 +71,6 @@ describe('menuReducer:', () => {
             zodiacName,
         });
 
-        //console.log('array', nextState.get('selectedCards'));
-        //console.log('displayName', nextState.get('article').type.displayName);
-
         expect(nextState.get('selectedCards')).toEqual(['Taurus']);
         expect(nextState.get('article').type.displayName).toEqual('Taurus');
     });
@@ -93,9 +85,6 @@ describe('menuReducer:', () => {
             type: ACTIONS.SELECT_ZODIAC_SIGN,
             zodiacName,
         });
-
-        //console.log('array', nextState.get('selectedCards'));
-        //console.log('displayName', nextState.get('article').type.displayName);
 
         expect(nextState.get('selectedCards')).toEqual(['Aries']);
         expect(nextState.get('article').type.displayName).toEqual('Aries');
@@ -112,14 +101,10 @@ describe('menuReducer:', () => {
             zodiacName,
         });
 
-        //console.log('array', nextState.get('selectedCards'));
-        //console.log('displayName', nextState.get('article').type.displayName);
-
         expect(nextState.get('selectedCards')).toEqual(['Cancer']);
         expect(nextState.get('article').type.displayName).toEqual('Cancer');
     });
 
-    //____________after work of test coverage tool_____________________
     it(`should handle payload "Taurus" correctly (Aries in array)`, () => {
         const zodiacName = 'Taurus';
         const initialState = Immutable.Map({
@@ -130,9 +115,6 @@ describe('menuReducer:', () => {
             type: ACTIONS.SELECT_ZODIAC_SIGN,
             zodiacName,
         });
-
-        // console.log('array', nextState.get('selectedCards'));
-        // console.log('displayName', nextState.get('article').type.displayName);
 
         expect(nextState.get('selectedCards')).toEqual(['Aries', zodiacName]);
         expect(nextState.get('article').type.displayName).toEqual('AriesTaurus');

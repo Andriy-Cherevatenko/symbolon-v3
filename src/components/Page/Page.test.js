@@ -13,11 +13,11 @@ jest.mock('react-redux', () => ({
 describe('Page Unit test:', () => {
     const page = mount(<Page />).find(Page);
 
-    it('Page renders without errors and output isn`t undefined/null', () => {
+    it('tests Page Component rendering', () => {
         expect(page).toBeTruthy();
     });
 
-    it('test function of getting state "selectedCards"', () => {
+    it('tests function of getting state "selectedCards"', () => {
         const state = {
             get: (smth) => smth,
         };
