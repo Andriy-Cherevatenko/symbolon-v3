@@ -9,7 +9,9 @@ jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: (f) => {
         return f({
-            get: (smth) => ['Aries', 'Cancer'],
+            get: () => {
+                return ['Aries', 'Cancer'];
+            },
         });
     },
 }));

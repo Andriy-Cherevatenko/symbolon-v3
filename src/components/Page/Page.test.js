@@ -9,7 +9,9 @@ jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: (f) => {
         return f({
-            get: (smth) => <div>BlankPage Component</div>,
+            get: () => {
+                return <div>BlankPage Component</div>;
+            },
         });
     },
 }));

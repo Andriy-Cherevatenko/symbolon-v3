@@ -34,7 +34,7 @@ describe('Menu Item Unit tests:', () => {
         expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
 
-    it('tests onClick event for MenuItem Component', () => {
+    it('tests onClick event for MenuItem Component using TEST LIB/REACT', () => {
         const { getByTestId } = render(
             <MenuItem
                 selected={selected}
@@ -42,10 +42,10 @@ describe('Menu Item Unit tests:', () => {
                 zodiacSign={zodiacSign}
             />
         );
-        const menuItem2 = getByTestId('menuitem');
+        const menuItem = getByTestId('menuitem');
 
         mockDispatch.mockClear(); // reset num of calls of useDispatch
-        fireEvent.click(menuItem2);
+        fireEvent.click(menuItem);
         expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
 });
