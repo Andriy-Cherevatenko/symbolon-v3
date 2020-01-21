@@ -26,22 +26,6 @@
         "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
         "precommit": "lint-staged"
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "plugin:prettier/recommended"
-        ]
-    },
-    "prettier": {
-        "useTabs": false,
-        "printWidth": 85,
-        "arrowParens": "always",
-        "semi": true,
-        "tabWidth": 4,
-        "trailingComma": "es5",
-        "bracketSpacing": true,
-        "singleQuote": true
-    },
     "browserslist": {
         "production": [
             ">0.2%",

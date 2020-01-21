@@ -5,7 +5,12 @@
         "jest": true
     },
     "plugins": ["react"],
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "react-app",
+        "plugin:prettier/recommended"
+    ],
     "parser": "babel-eslint",
     "settings": {
         "react": {
