@@ -3,7 +3,7 @@ import React from 'react';
 const BlankPage = React.memo(() => {
     return (
         <React.Fragment>
-            <div> BlankPage Component </div>
+            <div>BlankPage Component</div>
         </React.Fragment>
     );
 });

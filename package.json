@@ -20,27 +20,11 @@
     "scripts": {
         "start": "cross-env npm run eslint && craco start",
         "build": "cross-env craco build",
-        "test": "cross-env craco test",
+        "test": "cross-env craco test --verbose --coverage --watchAll",
         "eject": "cross-env react-scripts eject",
         "eslint": "cross-env eslint src/",
         "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
         "precommit": "lint-staged"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "plugin:prettier/recommended"
-        ]
-    },
-    "prettier": {
-        "useTabs": false,
-        "printWidth": 85,
-        "arrowParens": "always",
-        "semi": true,
-        "tabWidth": 4,
-        "trailingComma": "es5",
-        "bracketSpacing": true,
-        "singleQuote": true
     },
     "browserslist": {
         "production": [
@@ -55,10 +39,13 @@
         ]
     },
     "devDependencies": {
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
         "eslint": "^6.7.2",
         "eslint-config-prettier": "^6.7.0",
         "eslint-plugin-prettier": "^3.1.2",
         "husky": "^3.1.0",
+        "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
         "prettier": "^1.19.1"
     },
@@ -76,6 +63,22 @@
         "*.+(json|css|md)": [
             "prettier --write",
             "git add"
+        ]
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/coverage/**",
+            "!**/serviceWorker.js",
+            "!**/index.js",
+            "!**/components/Articles/**"
+        ],
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text",
+            "clover"
         ]
     }
 }
