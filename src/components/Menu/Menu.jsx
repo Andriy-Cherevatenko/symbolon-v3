@@ -4,7 +4,6 @@ import MenuItem from '../MenuItem/MenuItem';
 import ZODIAC from '../../constants/constants';
 import { useSelector } from 'react-redux';
 
-
 const Menu = memo(() => {
     const getSelectedCards = (state) => state.get('selectedCards');
     const selectedCards = useSelector(getSelectedCards);
@@ -18,9 +17,8 @@ const Menu = memo(() => {
                     zodiacSign={ZODIAC[item].sign}
                 />
             ))}
-       </div>
+        </div>
     );
 });
 
 export default Menu;
-
