@@ -1,14 +1,20 @@
 import React, { memo } from 'react';
-import Menu from './components/Menu/Menu';
-import Page from './components/Page/Page';
+// import Menu from './components/Menu/Menu';
+// import Page from './components/Page/Page';
 
-const App = memo(() => {
+function App() {
     return (
         <React.Fragment>
-            <Page />
-            <Menu />
+            <div>1</div>
         </React.Fragment>
     );
-});
+}
 
 export default App;
+
+/*
+
+            <Page />
+            <Menu />
+        
+        */

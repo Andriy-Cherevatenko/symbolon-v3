@@ -1,27 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import gql from 'graphql-tag';
+import { ApolloClient } from 'apollo-client';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 import App from './App';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import Reducer from './reducers';
-import Immutable from 'immutable';
+import state from './state';
 
-//to have redux dev tools enabled next line is required -
-const store = createStore(
-    Reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__({
-            serialize: {
-                immutable: Immutable,
-            },
-        })
-);
+const typeDefs = gql`
+    type VariableType {
+        id: Int!
+        name: String!
+        setting: String!
+    }
+    type Query {
+        variable: VariableType!
+    }
+    type Mutation {
+        updateVariable(value: String!): VariableType!
+    }
+`;
 
-const rootElement = document.getElementById('root');
+const resolvers = {
+    Query: {
+        variable: () => state.variable,
+    },
+    Mutation: {
+        updateVariable: (_, { setting }) => {
+            state.variable.value = setting;
+            return state.appBarColorSetting;
+        },
+    },
+};
 
-ReactDOM.render(
-    <Provider store={store}>
+const client = new ApolloClient({
+    cache: new InMemoryCache({
+        freezeResults: true,
+    }),
+    typeDefs,
+    resolvers,
+    assumeImmutableResults: true,
+});
+
+const TogglesApp = () => (
+    <ApolloProvider client={client}>
         <App />
-    </Provider>,
-    rootElement
+    </ApolloProvider>
 );
+
+ReactDOM.render(<TogglesApp />, document.getElementById('root'));
