@@ -14,25 +14,16 @@ const resolvers = {
             state.variable.value = setting;
             return state.appBarColorSetting;
         },
-        selectZodiacSign: (_, { value }) => {
-            console.log('Resolver, value = ', value);
 
-            state.articleSelectedCards = {
-                article: <Articles.Cancer />,
-                selectedCards: ['Cancer'],
-            };
+        updateArticle: (_, { value }) => {
+            // console.log('Resolver, value = ', value);
+            state.article.value = value;
+            return state.article;
+        },
 
-            //reducer logic here
-            // state.article.value = <Articles.Cancer />;
-            // state.selectedCards = ['Cancer'];
-            console.log(
-                'Resolver, state.articleSelectedCards = ',
-                state.articleSelectedCards
-            );
-            return state.articleSelectedCards;
-            // console.log('article, value = ', state.articleSelectedCards.article);
-            // console.log(                'selectedCards, value = ',                state.articleSelectedCards.selectedCards
-            // );
+        updateCards: (_, { value }) => {
+            state.selectedCards.value = value;
+            return state.selectedCards;
         },
     },
 };

@@ -20,14 +20,6 @@ const state = {
         value: ['Aries', 'Taurus'],
         __typename: 'selectedCards',
     },
-    articleSelectedCards: {
-        id: 4,
-        name: 'ArticleSelectedCards',
-
-        article: <Articles.AriesTaurus />,
-        selectedCards: ['Aries', 'Taurus'],
-        __typename: 'ArticleSelectedCards',
-    },
 };
 
 export default state;

@@ -14,22 +14,18 @@ const typeDefs = gql`
     type SelectedCardsType {
         id: Int!
         name: String!
-        value: String!
-    }
-    type ArticleSelectedCardsType {
-        id: Int!
-        article: String!
-        selectedCards: SelectedCardsType!
+        value: [String]!
     }
     type Query {
         variable: VariableType!
         article: ArticleType!
         selectedCards: SelectedCardsType!
-        articleSelectedCards: ArticleSelectedCardsType!
     }
     type Mutation {
         updateVariable(value: String!): VariableType!
-        selectZodiacSign(value: String!): ArticleSelectedCardsType!
+        updateArticle(value: String!): ArticleType!
+        updateCards(value: String!): SelectedCardsType!
+        selectZodiacSign(value: String!): null
     }
 `;
 
