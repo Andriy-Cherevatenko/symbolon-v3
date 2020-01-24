@@ -1,0 +1,20 @@
+const { ARTICLE_QUERY } = require('./ARTICLE_QUERY');
+const { SELECT_ZODIAC_SIGN } = require('./SELECT_ZODIAC_SIGN');
+const { SELECTED_CARDS_QUERY } = require('./SELECTED_CARDS_QUERY');
+const { ARTICLE_SELECTED_CARDS_QUERY } = require('./ARTICLE_SELECTED_CARDS_QUERY');
+
+const { UPDATE_VARIABLE_MUTATION } = require('./UPDATE_VARIABLE_MUTATION');
+const { VARIABLE_QUERY } = require('./VARIABLE_QUERY');
+
+const queries = [
+    ARTICLE_QUERY,
+    SELECT_ZODIAC_SIGN,
+    SELECTED_CARDS_QUERY,
+    ARTICLE_SELECTED_CARDS_QUERY,
+    UPDATE_VARIABLE_MUTATION,
+    VARIABLE_QUERY,
+];
+
+module.exports = {
+    queries,
+};

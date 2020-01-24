@@ -1,8 +1,0 @@
-{
-    "variable": {
-        "id": 1,
-        "name": "App Bar Color",
-        "value": "primary",
-        "__typename": "AppBarColorSetting"
-    }
-}
