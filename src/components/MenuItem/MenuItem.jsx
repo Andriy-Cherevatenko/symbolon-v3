@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useMutation } from '@apollo/react-hooks';
 
-import UPDATE_ARTICLE_MUTATION from '../../graphql/queries/UPDATE_ARTICLE_MUTATION';
 import UPDATE_CARDS_MUTATION from '../../graphql/queries/UPDATE_CARDS_MUTATION';
 import ARTICLE_QUERY from '../../graphql/queries/ARTICLE_QUERY';
 import SELECTED_CARDS_QUERY from '../../graphql/queries/SELECTED_CARDS_QUERY';
@@ -17,17 +16,30 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
     const [updateCards] = useMutation(UPDATE_CARDS_MUTATION, {
         variables: { zodiacName },
         update: (cache) => {
-            const data = cache.readQuery({
+            const cards = cache.readQuery({
                 query: SELECTED_CARDS_QUERY,
             });
 
-            console.log('data selectedCards', data.selectedCards.value);
+            const article = cache.readQuery({
+                query: ARTICLE_QUERY,
+            });
 
-            console.log('zodiacName', zodiacName);
+            // console.log(
+            //     'zodiacName: ',
+            //     zodiacName,
+            //     '\n',
+            //     'Article: ',
+            //     article.article.value,
+            //     '\n',
+            //     'selectedCards: ',
+            //     cards.selectedCards.value
+            // );
 
             // reducer logic____________________
 
-            let nextCards = [...data.selectedCards.value];
+            let nextCards = [...cards.selectedCards.value];
+            let nextArticle = article.article.value;
+
             // debugger;
 
             const currentIndex = nextCards.indexOf(zodiacName);
@@ -35,7 +47,7 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
             switch (nextCards.length) {
                 case 0: // if no card selected yet
                     nextCards.push(zodiacName); // push first card
-                    //                    nextArticle = ZODIAC[nextCards[0]].articles[nextCards[0]]; //next article is based on 1st element of cards array
+                    nextArticle = ZODIAC[nextCards[0]].articles[nextCards[0]]; //next article is based on 1st element of cards array
                     break;
                 case 1: // if one card selected
                     if (currentIndex === -1) {
@@ -45,10 +57,10 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
                             //swap cards if needed
                             nextCards = [nextCards[1], nextCards[0]];
                         }
-                        //            nextArticle = ZODIAC[nextCards[0]].articles[nextCards[1]]; //next article is based on two cards selected
+                        nextArticle = ZODIAC[nextCards[0]].articles[nextCards[1]]; //next article is based on two cards selected
                     } else {
                         nextCards.splice(currentIndex, 1); // if yes - remove selected card from array
-                        //           nextArticle = <Articles.BlankPage />; //article is blank
+                        nextArticle = <Articles.BlankPage />; //article is blank
                     }
                     break;
                 case 2: // if already two cards in array
@@ -59,55 +71,50 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
                     } else {
                         nextCards.splice(currentIndex, 1); //if yes - remove clicked card from array
                     }
-                    //       nextArticle = ZODIAC[nextCards[0]].articles[nextCards[0]]; //render only one card
+                    nextArticle = ZODIAC[nextCards[0]].articles[nextCards[0]]; //render only one card
                     break;
                 default:
                     break;
             }
 
-            console.log('nextCards', nextCards);
+            //console.log('nextArticle: ', nextArticle);
+            // console.log('nextCards: ', nextCards);
             //end of reducer logic____________________________
 
             const dataClone = {
-                ...data,
+                ...cards,
                 selectedCards: {
-                    ...data.selectedCards,
+                    ...cards.selectedCards,
                     value: nextCards,
                 },
             };
 
+            const dataClone2 = {
+                ...article,
+                article: {
+                    ...article.article,
+                    value: nextArticle,
+                },
+            };
+
+            //
             cache.writeQuery({
                 query: SELECTED_CARDS_QUERY,
                 data: dataClone,
             });
-        },
-    });
-
-    const article = <Articles.Cancer />;
-    const [updateArticle] = useMutation(UPDATE_ARTICLE_MUTATION, {
-        variables: { article },
-        update: (cache) => {
-            const data = cache.readQuery({
-                query: ARTICLE_QUERY,
-            });
-
-            const dataClone = {
-                ...data,
-                article: {
-                    ...data.article,
-                    value: article,
-                },
-            };
 
             cache.writeQuery({
                 query: ARTICLE_QUERY,
-                data: dataClone,
+                data: dataClone2,
             });
         },
     });
 
-    const updArticle = updateArticle;
+    /////__________________
+
+    //const updCards = updateCards;
     const updCards = updateCards;
+
     const onClick = () => {
         //   updArticle('<Articles.Cancer />');
         updCards();
