@@ -11,8 +11,6 @@ import Articles from '../../components/Articles';
 import ZODIAC from '../../constants/constants';
 
 const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
-    //const cards = [zodiacName.toString()];
-
     const [updateCards] = useMutation(UPDATE_CARDS_MUTATION, {
         variables: { zodiacName },
         update: (cache) => {
@@ -39,8 +37,6 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
 
             let nextCards = [...cards.selectedCards.value];
             let nextArticle = article.article.value;
-
-            // debugger;
 
             const currentIndex = nextCards.indexOf(zodiacName);
 
@@ -77,8 +73,6 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
                     break;
             }
 
-            //console.log('nextArticle: ', nextArticle);
-            // console.log('nextCards: ', nextCards);
             //end of reducer logic____________________________
 
             const dataClone = {
@@ -97,7 +91,6 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
                 },
             };
 
-            //
             cache.writeQuery({
                 query: SELECTED_CARDS_QUERY,
                 data: dataClone,
@@ -110,13 +103,9 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
         },
     });
 
-    /////__________________
-
-    //const updCards = updateCards;
     const updCards = updateCards;
 
     const onClick = () => {
-        //   updArticle('<Articles.Cancer />');
         updCards();
     };
 
