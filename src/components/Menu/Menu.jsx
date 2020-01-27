@@ -9,8 +9,6 @@ const Menu = memo(() => {
     const { loading, data } = useQuery(SELECTED_CARDS_QUERY);
     if (loading) return <h2>Loading...</h2>;
     const selectedCards = data.selectedCards.value;
-
-    // console.log(selectedCards);
     return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (

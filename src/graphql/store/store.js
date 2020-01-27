@@ -1,7 +1,7 @@
 import React from 'react';
-import Articles from './components/Articles';
+import Articles from '../../components/Articles';
 
-const state = {
+const store = {
     article: {
         id: 1,
         name: 'article',
@@ -16,4 +16,4 @@ const state = {
     },
 };
 
-export default state;
+export default store;

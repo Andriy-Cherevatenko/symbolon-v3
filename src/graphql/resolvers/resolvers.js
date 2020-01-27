@@ -1,21 +1,20 @@
-import state from '../../state';
+import store from '../store';
 
 const resolvers = {
     Query: {
-        article: () => state.article,
-        selectedCards: () => state.selectedCards,
-        articleSelectedCards: () => state.articleSelectedCards,
+        article: () => store.article,
+        selectedCards: () => store.selectedCards,
+        articleSelectedCards: () => store.articleSelectedCards,
     },
     Mutation: {
         updateArticle: (_, { value }) => {
-            // console.log('Resolver, value = ', value);
-            state.article.value = value;
-            return state.article;
+            store.article.value = value;
+            return store.article;
         },
         updateCards: (_, { cards, article }) => {
-            state.selectedCards.value = cards;
-            state.article.value = article;
-            return state;
+            store.selectedCards.value = cards;
+            store.article.value = article;
+            return store;
         },
     },
 };

@@ -16,10 +16,9 @@ const client = new ApolloClient({
     assumeImmutableResults: true,
 });
 
-const TogglesApp = () => (
+ReactDOM.render(
     <ApolloProvider client={client}>
         <App />
-    </ApolloProvider>
+    </ApolloProvider>,
+    document.getElementById('root')
 );
-
-ReactDOM.render(<TogglesApp />, document.getElementById('root'));
