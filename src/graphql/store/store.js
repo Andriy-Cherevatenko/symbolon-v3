@@ -1,11 +1,8 @@
-import React from 'react';
-import Articles from '../../components/Articles';
-
 const store = {
     article: {
         id: 1,
         name: 'article',
-        value: <Articles.BlankPage />,
+        value: 'BlankPage',
         __typename: 'article',
     },
     selectedCards: {

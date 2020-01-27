@@ -1,9 +1,7 @@
-import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import UPDATE_CARDS_MUTATION from '../../graphql/queries/UPDATE_CARDS_MUTATION';
 import ARTICLE_QUERY from '../../graphql/queries/ARTICLE_QUERY';
 import SELECTED_CARDS_QUERY from '../../graphql/queries/SELECTED_CARDS_QUERY';
-import Articles from '../../components/Articles';
 import ZODIAC from '../../constants/constants';
 
 const useUpdateCards = (zodiacName) => {
@@ -40,7 +38,7 @@ const useUpdateCards = (zodiacName) => {
                         nextArticle = ZODIAC[nextCards[0]].articles[nextCards[1]]; //next article is based on two cards selected
                     } else {
                         nextCards.splice(currentIndex, 1); // if yes - remove selected card from array
-                        nextArticle = <Articles.BlankPage />; //article is blank
+                        nextArticle = 'BlankPage'; //article is blank
                     }
                     break;
                 case 2: // if already two cards in array

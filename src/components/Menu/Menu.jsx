@@ -4,6 +4,7 @@ import MenuItem from '../MenuItem/MenuItem';
 import ZODIAC from '../../constants/constants';
 import { useQuery } from '@apollo/react-hooks';
 import SELECTED_CARDS_QUERY from '../../graphql/queries/SELECTED_CARDS_QUERY';
+import zodiacSignResolver from '../../utils/zodiacSignResolver';
 
 const Menu = memo(() => {
     const { loading, data } = useQuery(SELECTED_CARDS_QUERY);
@@ -16,7 +17,7 @@ const Menu = memo(() => {
                     selected={selectedCards.indexOf(item) > -1}
                     key={item}
                     zodiacName={item}
-                    zodiacSign={ZODIAC[item].sign}
+                    zodiacSign={zodiacSignResolver(item)}
                 />
             ))}
         </div>
