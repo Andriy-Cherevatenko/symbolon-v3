@@ -7,7 +7,7 @@ import articleResolver from '../../utils/articleResolver';
 const Page = memo(() => {
     const { loading, data } = useQuery(ARTICLE_QUERY);
     if (loading) return <h2>Loading...</h2>;
-    const article = articleResolver(data.article.value);
+    const article = articleResolver[data.article.value];
     return <div className="page">{article}</div>;
 });
 
