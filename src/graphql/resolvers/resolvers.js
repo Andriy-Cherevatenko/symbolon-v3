@@ -2,13 +2,10 @@ import store from '../store';
 
 const resolvers = {
     Query: {
-        article: () => store.article,
-        selectedCards: () => store.selectedCards,
+        symbolon: () => store.symbolon,
     },
     Mutation: {
-        updateCards: (_, { cards, article }) => {
-            store.selectedCards.value = cards;
-            store.article.value = article;
+        updateCards: () => {
             return store;
         },
     },

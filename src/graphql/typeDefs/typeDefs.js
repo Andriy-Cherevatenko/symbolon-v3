@@ -1,22 +1,17 @@
 import gql from 'graphql-tag';
 
 const typeDefs = gql`
-    type ArticleType {
+    type SymbolonType {
         id: Int!
         name: String!
-        value: String!
-    }
-    type SelectedCardsType {
-        id: Int!
-        name: String!
-        value: [String]!
+        article: String!
+        selectedCards: String!
     }
     type Query {
-        article: ArticleType!
-        selectedCards: SelectedCardsType!
+        symbolon: SymbolonType!
     }
     type Mutation {
-        updateCards(value1: String!, value2: String!): SelectedCardsType!
+        updateCards: SymbolonType!
     }
 `;
 

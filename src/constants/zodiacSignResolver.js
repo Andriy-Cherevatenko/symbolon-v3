@@ -11,7 +11,6 @@ import scorpion from '../svgs/scorpion.svg';
 import taurus from '../svgs/taurus.svg';
 import virgo from '../svgs/virgo.svg';
 
-//zodiac.
 const zodiacSignResolver = {
     Aquarius: aquarius,
     Aries: aries,

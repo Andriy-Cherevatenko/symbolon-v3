@@ -1,24 +1,20 @@
 import { useMutation } from '@apollo/react-hooks';
 import UPDATE_CARDS_MUTATION from '../../graphql/queries/UPDATE_CARDS_MUTATION';
-import ARTICLE_QUERY from '../../graphql/queries/ARTICLE_QUERY';
-import SELECTED_CARDS_QUERY from '../../graphql/queries/SELECTED_CARDS_QUERY';
+import SYMBOLON_QUERY from '../queries/SYMBOLON_QUERY';
 import ZODIAC from '../../constants/constants';
 
 const useUpdateCards = (zodiacName) => {
+    //https://www.apollographql.com/docs/react/data/mutations/
     const [updateCards] = useMutation(UPDATE_CARDS_MUTATION, {
-        variables: { zodiacName },
+        variables: {},
         update: (cache) => {
-            const cards = cache.readQuery({
-                query: SELECTED_CARDS_QUERY,
-            });
-
-            const article = cache.readQuery({
-                query: ARTICLE_QUERY,
+            const oldcache = cache.readQuery({
+                query: SYMBOLON_QUERY,
             });
 
             // reducer logic____________________
-            let nextCards = [...cards.selectedCards.value];
-            let nextArticle = article.article.value;
+            let nextCards = [...oldcache.symbolon.selectedCards];
+            let nextArticle = oldcache.symbolon.article;
 
             const currentIndex = nextCards.indexOf(zodiacName);
 
@@ -57,30 +53,20 @@ const useUpdateCards = (zodiacName) => {
 
             //end of reducer logic____________________________
 
+            //https://dev.to/mattdionis/move-over-redux-apollo-client-as-a-state-management-solution-with-hooks-10jc
+
             const dataClone = {
-                ...cards,
-                selectedCards: {
-                    ...cards.selectedCards,
-                    value: nextCards,
-                },
-            };
-
-            const dataClone2 = {
-                ...article,
-                article: {
-                    ...article.article,
-                    value: nextArticle,
+                ...oldcache,
+                symbolon: {
+                    ...oldcache.symbolon,
+                    article: nextArticle,
+                    selectedCards: nextCards,
                 },
             };
 
             cache.writeQuery({
-                query: SELECTED_CARDS_QUERY,
+                query: SYMBOLON_QUERY,
                 data: dataClone,
-            });
-
-            cache.writeQuery({
-                query: ARTICLE_QUERY,
-                data: dataClone2,
             });
         },
     });

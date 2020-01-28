@@ -1,15 +1,10 @@
 const store = {
-    article: {
+    symbolon: {
         id: 1,
-        name: 'article',
-        value: 'BlankPage',
-        __typename: 'article',
-    },
-    selectedCards: {
-        id: 2,
-        name: 'selectedCards',
-        value: [],
-        __typename: 'selectedCards',
+        name: 'symbolon',
+        article: 'BlankPage',
+        selectedCards: [],
+        __typename: 'symbolon',
     },
 };
 

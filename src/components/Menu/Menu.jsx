@@ -3,13 +3,13 @@ import './Menu.less';
 import MenuItem from '../MenuItem/MenuItem';
 import ZODIAC from '../../constants/constants';
 import { useQuery } from '@apollo/react-hooks';
-import SELECTED_CARDS_QUERY from '../../graphql/queries/SELECTED_CARDS_QUERY';
-import zodiacSignResolver from '../../utils/zodiacSignResolver';
+import SYMBOLON_QUERY from '../../graphql/queries/SYMBOLON_QUERY';
+import zodiacSignResolver from '../../constants/zodiacSignResolver';
 
 const Menu = memo(() => {
-    const { loading, data } = useQuery(SELECTED_CARDS_QUERY);
+    const { loading, data } = useQuery(SYMBOLON_QUERY);
     if (loading) return <h2>Loading...</h2>;
-    const selectedCards = data.selectedCards.value;
+    const selectedCards = data.symbolon.selectedCards;
     return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (
