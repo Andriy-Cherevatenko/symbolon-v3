@@ -11,36 +11,20 @@ import scorpion from '../svgs/scorpion.svg';
 import taurus from '../svgs/taurus.svg';
 import virgo from '../svgs/virgo.svg';
 
-const zodiacSignResolver = (zodiacSign) => {
-    switch (zodiacSign) {
-        case 'Aquarius':
-            return aquarius;
-        case 'Aries':
-            return aries;
-        case 'Cancer':
-            return cancer;
-        case 'Capricorn':
-            return capricorn;
-        case 'Gemini':
-            return gemini;
-        case 'Leo':
-            return leo;
-        case 'Libra':
-            return libra;
-        case 'Pisces':
-            return pisces;
-        case 'Sagittarius':
-            return sagittarius;
-        case 'Scorpion':
-            return scorpion;
-        case 'Taurus':
-            return taurus;
-        case 'Virgo':
-            return virgo;
-
-        default:
-            return null;
-    }
+//zodiac.
+const zodiacSignResolver = {
+    Aquarius: aquarius,
+    Aries: aries,
+    Cancer: cancer,
+    Capricorn: capricorn,
+    Gemini: gemini,
+    Leo: leo,
+    Libra: libra,
+    Pisces: pisces,
+    Sagittarius: sagittarius,
+    Scorpion: scorpion,
+    Taurus: taurus,
+    Virgo: virgo,
 };
 
 export default zodiacSignResolver;

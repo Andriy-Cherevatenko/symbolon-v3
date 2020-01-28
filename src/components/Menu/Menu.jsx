@@ -17,7 +17,7 @@ const Menu = memo(() => {
                     selected={selectedCards.indexOf(item) > -1}
                     key={item}
                     zodiacName={item}
-                    zodiacSign={zodiacSignResolver(item)}
+                    zodiacSign={zodiacSignResolver[item]}
                 />
             ))}
         </div>
