@@ -25,7 +25,7 @@
     "scripts": {
         "start": "cross-env npm run eslint && craco start",
         "build": "cross-env craco build",
-        "test": "cross-env craco test --verbose --coverage --watchAll",
+        "test": "cross-env craco test --verbose --coverage --watchAll --silent",
         "eject": "cross-env react-scripts eject",
         "eslint": "cross-env eslint src/",
         "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
@@ -44,6 +44,7 @@
         ]
     },
     "devDependencies": {
+        "@testing-library/react-hooks": "^3.2.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "eslint": "^6.7.2",

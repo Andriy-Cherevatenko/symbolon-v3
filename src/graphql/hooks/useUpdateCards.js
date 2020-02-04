@@ -4,8 +4,9 @@ import SYMBOLON_QUERY from '../queries/SYMBOLON_QUERY';
 import ZODIAC from '../../constants/constants';
 
 const useUpdateCards = (zodiacName) => {
-    //https://www.apollographql.com/docs/react/data/mutations/
+    //https://www.apollographql.com/docs/tutorial/mutations/
     const [updateCards] = useMutation(UPDATE_CARDS_MUTATION, {
+        //const [updateCards, { data }] = useMutation(UPDATE_CARDS_MUTATION, {
         variables: {},
         update: (cache) => {
             const oldcache = cache.readQuery({
@@ -70,6 +71,7 @@ const useUpdateCards = (zodiacName) => {
             });
         },
     });
+
     return updateCards;
 };
 
