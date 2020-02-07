@@ -7,7 +7,7 @@ import articleResolver from './constants/articleResolver';
 
 const App = memo(() => {
     const { loading, data } = useQuery(SYMBOLON_QUERY);
-    if (loading) return null;
+    if (loading) return <div>Loading...</div>;
     return (
         <React.Fragment>
             <Page article={articleResolver[data.symbolon.article]} />

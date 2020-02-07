@@ -6,15 +6,9 @@ import useUpdateCards from '../../graphql/hooks';
 
 const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
     const updCards = useUpdateCards(zodiacName);
-
-    const onClick = () => {
-        updCards();
-    };
-
     const menuItemClasses = classNames('menuitem-centered', { selected });
-
     return (
-        <div data-testid="menuitem" onClick={onClick} className={menuItemClasses}>
+        <div data-testid="menuitem" onClick={updCards} className={menuItemClasses}>
             <img src={zodiacSign} alt={zodiacSign} />
         </div>
     );
