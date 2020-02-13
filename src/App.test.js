@@ -7,16 +7,19 @@ import Page from './components/Page/Page';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-jest.mock('react-redux', () => ({
-    useDispatch: () => {},
-    useSelector: (params) => {
-        const paramsString = params.toString();
+jest.mock('./graphql/hooks');
 
-        if (paramsString.includes('article')) {
-            return <div>Aries-Cancer Component</div>;
-        } else if (paramsString.includes('selectedCards')) {
-            return ['Aries', 'Cancer'];
-        } else return {};
+jest.mock('@apollo/react-hooks', () => ({
+    useQuery: () => {
+        return {
+            loading: false,
+            data: {
+                symbolon: {
+                    article: 'BlankPage',
+                    selectedCards: [],
+                },
+            },
+        };
     },
 }));
 
@@ -24,7 +27,6 @@ describe('App component tests:', () => {
     const app = mount(<App />);
     const page = app.find(Page);
     const menu = app.find(Menu);
-
     it('tests App Component rendering', () => {
         expect(app).toBeTruthy();
     });

@@ -8,5 +8,4 @@ const AquariusPisces = React.memo(() => {
     );
 });
 
-
 export default AquariusPisces;

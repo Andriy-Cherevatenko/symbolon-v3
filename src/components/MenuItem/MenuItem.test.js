@@ -3,38 +3,37 @@ import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import MenuItem from './MenuItem';
 import { fireEvent, render } from '@testing-library/react';
+import useUpdateCards from '../../graphql/hooks';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-    useDispatch: () => mockDispatch,
-}));
+jest.mock('classnames');
+jest.mock('../../graphql/hooks');
 
 describe('Menu Item Unit tests:', () => {
-    const selected = true;
-    const zodiacName = 'Aries';
-    const zodiacSign = 'aries.svg';
-
-    const menuItem = mount(
-        <MenuItem
-            selected={selected}
-            zodiacName={zodiacName}
-            zodiacSign={zodiacSign}
-        />
-    ).find(MenuItem);
-
-    it('tests Menu Item rendering', () => {
-        expect(menuItem).toBeTruthy();
-    });
-
     it('tests onClick event for MenuItem Component', () => {
-        menuItem.simulate('click');
+        const selected = true;
+        const zodiacName = 'Aries';
+        const zodiacSign = 'aries.svg';
 
-        expect(mockDispatch).toHaveBeenCalledTimes(1);
+        const menuItem = mount(
+            <MenuItem
+                selected={selected}
+                zodiacName={zodiacName}
+                zodiacSign={zodiacSign}
+            />
+        ).find(MenuItem);
+
+        menuItem.simulate('click');
+        expect(menuItem).toBeTruthy();
+        expect(useUpdateCards).toHaveBeenCalledTimes(1);
     });
 
     it('tests onClick event for MenuItem Component using TEST LIB/REACT', () => {
+        const selected = true;
+        const zodiacName = 'Aries';
+        const zodiacSign = 'aries.svg';
+
         const { getByTestId } = render(
             <MenuItem
                 selected={selected}
@@ -44,8 +43,7 @@ describe('Menu Item Unit tests:', () => {
         );
         const menuItem = getByTestId('menuitem');
 
-        mockDispatch.mockClear(); // reset num of calls of useDispatch
         fireEvent.click(menuItem);
-        expect(mockDispatch).toHaveBeenCalledTimes(1);
+        expect(useUpdateCards).toHaveBeenCalledTimes(2);
     });
 });

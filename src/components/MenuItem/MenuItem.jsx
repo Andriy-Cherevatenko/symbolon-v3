@@ -2,24 +2,15 @@ import React, { memo } from 'react';
 import './MenuItem.less';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
-import ACTIONS from './../../actions';
+import useUpdateCards from '../../graphql/hooks';
 
 const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
-    const dispatch = useDispatch();
-    const onClick = () => {
-        dispatch({
-            type: ACTIONS.SELECT_ZODIAC_SIGN,
-            zodiacName,
-        });
-    };
-
+    const updCards = useUpdateCards(zodiacName);
     const menuItemClasses = classNames('menuitem-centered', { selected });
-
     return (
-        <div data-testid="menuitem" onClick={onClick} className={menuItemClasses}>
+        <div data-testid="menuitem" onClick={updCards} className={menuItemClasses}>
             <img src={zodiacSign} alt={zodiacSign} />
-       </div>
+        </div>
     );
 });
 

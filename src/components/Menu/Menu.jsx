@@ -2,23 +2,26 @@ import React, { memo } from 'react';
 import './Menu.less';
 import MenuItem from '../MenuItem/MenuItem';
 import ZODIAC from '../../constants/constants';
-import { useSelector } from 'react-redux';
+import zodiacSignResolver from '../../constants/zodiacSignResolver';
+import PropTypes from 'prop-types';
 
-const Menu = memo(() => {
-    const getSelectedCards = (state) => state.get('selectedCards');
-    const selectedCards = useSelector(getSelectedCards);
+const Menu = memo((props) => {
     return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (
                 <MenuItem
-                    selected={selectedCards.indexOf(item) > -1}
+                    selected={props.selectedCards.indexOf(item) > -1}
                     key={item}
                     zodiacName={item}
-                    zodiacSign={ZODIAC[item].sign}
+                    zodiacSign={zodiacSignResolver[item]}
                 />
             ))}
         </div>
     );
 });
+
+Menu.propTypes = {
+    selectedCards: PropTypes.array,
+};
 
 export default Menu;

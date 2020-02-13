@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
 import './Page.less';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Page = memo(() => {
-    const getArticle = (state) => state.get('article');
-    const article = useSelector(getArticle);
-    return <div className="page">{article}</div>;
+const Page = memo((props) => {
+    return <div className="page">{props.article}</div>;
 });
 
 export default Page;
 
+Page.propTypes = {
+    article: PropTypes.object,
+};

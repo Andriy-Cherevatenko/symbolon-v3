@@ -9,4 +9,3 @@ const Aquarius = React.memo(() => {
 });
 
 export default Aquarius;
-
