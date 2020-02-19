@@ -6,7 +6,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import typeDefs from './graphql/typeDefs';
 import resolvers from './graphql/resolvers';
 import App from './App';
-
+import * as serviceWorker from './serviceWorker';
 const client = new ApolloClient({
     cache: new InMemoryCache({
         freezeResults: true,
@@ -22,3 +22,4 @@ ReactDOM.render(
     </ApolloProvider>,
     document.getElementById('root')
 );
+serviceWorker.register();
