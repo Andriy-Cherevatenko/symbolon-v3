@@ -3,7 +3,13 @@ import './Page.less';
 import PropTypes from 'prop-types';
 
 const Page = memo((props) => {
-    return <div className="page">{props.article}</div>;
+    const createMarkup = (html) => ({ __html: html });
+    return (
+        <div
+            className="page"
+            dangerouslySetInnerHTML={createMarkup(props.article)}
+        />
+    );
 });
 
 export default Page;
