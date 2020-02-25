@@ -1,9 +1,11 @@
 .menu-wrapper {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    align-items: center;
-
+    overflow-x: scroll;
     color: #000000;
     background-color: #ffffff;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
