@@ -26,7 +26,7 @@
     "scripts": {
         "start": "cross-env npm run eslint && craco start",
         "build": "cross-env craco build",
-        "test": "cross-env craco test --verbose --coverage --watchAll --silent ",
+        "test": "cross-env craco test  --verbose --coverage --watchAll=false --silent ",
         "eject": "cross-env react-scripts eject",
         "eslint": "cross-env eslint src/",
         "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
