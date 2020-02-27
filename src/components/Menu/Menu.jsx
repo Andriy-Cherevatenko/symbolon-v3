@@ -6,6 +6,7 @@ import zodiacSignResolver from '../../constants/zodiacSignResolver';
 import PropTypes from 'prop-types';
 
 const Menu = memo((props) => {
+    Object.keys(ZODIAC).map((item) => console.log(item, zodiacSignResolver[item]));
     return (
         <div className="menu-wrapper">
             {Object.keys(ZODIAC).map((item) => (
