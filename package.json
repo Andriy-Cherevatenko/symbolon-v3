@@ -54,7 +54,8 @@
         "husky": "^3.1.0",
         "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
-        "prettier": "^1.19.1"
+        "prettier": "^1.19.1",
+        "typescript": "^3.8.2"
     },
     "husky": {
         "hooks": {
@@ -87,5 +88,8 @@
             "text",
             "clover"
         ]
+    },
+    "optionalDependencies": {
+        "fsevents": "^2.1.2"
     }
 }
