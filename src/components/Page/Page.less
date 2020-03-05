@@ -1,5 +1,19 @@
-.page {
-    color: #ffffff;
-    background-color: #000000;
-    height: 86vh;
+@media screen and (orientation: portrait) {
+    .page {
+        padding: 1vh 3vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 88vh;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .page {
+        padding: 3vh 1vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 77vh;
+        -webkit-overflow-scrolling: touch;
+    }
 }

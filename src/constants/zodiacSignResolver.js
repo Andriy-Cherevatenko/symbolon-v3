@@ -7,7 +7,7 @@ import leo from '../svgs/leo.svg';
 import libra from '../svgs/libra.svg';
 import pisces from '../svgs/pisces.svg';
 import sagittarius from '../svgs/sagittarius.svg';
-import scorpion from '../svgs/scorpion.svg';
+import scorpio from '../svgs/scorpio.svg';
 import taurus from '../svgs/taurus.svg';
 import virgo from '../svgs/virgo.svg';
 
@@ -21,7 +21,7 @@ const zodiacSignResolver = {
     Libra: libra,
     Pisces: pisces,
     Sagittarius: sagittarius,
-    Scorpion: scorpion,
+    Scorpio: scorpio,
     Taurus: taurus,
     Virgo: virgo,
 };

@@ -4,6 +4,7 @@ import Page from './components/Page/Page';
 import { useQuery } from '@apollo/react-hooks';
 import SYMBOLON_QUERY from './graphql/queries/SYMBOLON_QUERY';
 import articleResolver from './constants/articleResolver';
+import './App.less';
 
 const App = memo(() => {
     const { loading, data } = useQuery(SYMBOLON_QUERY);

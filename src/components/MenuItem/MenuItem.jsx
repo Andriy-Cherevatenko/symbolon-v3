@@ -8,9 +8,13 @@ const MenuItem = memo(({ zodiacName, zodiacSign, selected }) => {
     const updCards = useUpdateCards(zodiacName);
     const menuItemClasses = classNames('menuitem-centered', { selected });
     return (
-        <div data-testid="menuitem" onClick={updCards} className={menuItemClasses}>
-            <img src={zodiacSign} alt={zodiacSign} />
-        </div>
+        <img
+            src={zodiacSign}
+            alt={zodiacSign}
+            data-testid="menuitem"
+            onClick={updCards}
+            className={menuItemClasses}
+        />
     );
 });
 
